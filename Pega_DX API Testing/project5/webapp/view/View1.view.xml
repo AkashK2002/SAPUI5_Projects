@@ -1,0 +1,132 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    controllerName="project5.controller.View1"
+    displayBlock="true">
+
+    <m:Page id="page" title="SAP X PEGA" class="sapUiContentPadding">
+        <m:content>
+
+            <!-- Create Incident Report Case -->
+            <m:VBox class="sapUiMediumMargin">
+                <m:Panel headerText="📝 Create Incident Report Case" expandable="true" expanded="true" class="sapUiResponsiveMargin">
+                    <form:SimpleForm layout="ColumnLayout" editable="true" class="sapUiResponsiveMargin" width="80%">
+                        <m:Label text="Order Date:" />
+                        <m:Input id="incidentInput2" placeholder="Enter Order Date (YYYY-MM-DD)" value="{/incidentType2}" />
+
+                        <m:Label text="Delivery Address:" />
+                        <m:Input id="incidentInput3" placeholder="Enter Delivery Address" value="{/incidentType3}" />
+
+                        <m:Label text="Purchase Order Number:" />
+                        <m:Input id="incidentInput9" placeholder="Enter Purchase Order Number" value="{/incidentType9}" />
+
+                        <m:Label text="Payment Terms:" />
+                        <m:Input id="incidentInput8" placeholder="Enter Payment Terms" value="{/incidentType8}" />
+
+                        <m:Label text="Quantity Ordered:" />
+                        <m:Input id="incidentInput10" placeholder="Enter Quantity Ordered" value="{/incidentType10}" />
+                    </form:SimpleForm>
+
+                    <m:HBox class="sapUiMediumMarginTop" justifyContent="End">
+                        <m:Button text="Submit Incident Case" press="onSubmitIncident" type="Emphasized" icon="sap-icon://accept" />
+                    </m:HBox>
+                </m:Panel>
+            </m:VBox>
+
+            <!-- Assignment Details -->
+            <m:VBox class="sapUiMediumMargin">
+                <m:Panel headerText="📋 Assignment Details" expandable="true" expanded="true" class="sapUiResponsiveMargin">
+                    <form:SimpleForm layout="ResponsiveGridLayout" editable="true" class="sapUiResponsiveMargin" width="80%">
+                        <m:Label text="Assignment ID:" />
+                        <m:Input id="assignmentInput" placeholder="Enter Assignment ID" value="{/assignmentId}" />
+                    </form:SimpleForm>
+
+                    <m:HBox class="sapUiSmallMarginTop" justifyContent="End">
+                        <m:Button text="Get Assignment Details" press="onGetAssignmentDetails" icon="sap-icon://search" type="Emphasized" />
+                    </m:HBox>
+
+                    <form:SimpleForm layout="ResponsiveGridLayout" editable="false" class="sapUiResponsiveMargin sapUiSmallMarginTop" width="80%">
+                        <m:Label text="Case Type ID:" />
+                        <m:Text text="{assignmentModel>/caseTypeID}" />
+
+                        <m:Label text="Owner:" />
+                        <m:Text text="{assignmentModel>/owner}" />
+
+                        <m:Label text="Assignment ID:" />
+                        <m:Text text="{assignmentModel>/assignmentId}" />
+
+                        <m:Label text="Case ID:" />
+                        <m:Text text="{assignmentModel>/caseId}" />
+                    </form:SimpleForm>
+                </m:Panel>
+            </m:VBox>
+
+            <!-- Delete Case -->
+            <m:VBox class="sapUiMediumMargin">
+                <m:Panel headerText="🗑️ Delete a Case by Case ID" expandable="true" expanded="true" class="sapUiResponsiveMargin">
+                    <form:SimpleForm layout="ResponsiveGridLayout" editable="true" class="sapUiResponsiveMargin" width="80%">
+                        <m:Label text="Case ID:" />
+                        <m:Input id="deleteCaseInput" placeholder="Enter Case ID to Delete" value="{/deleteCaseId}" />
+                    </form:SimpleForm>
+
+                    <m:HBox class="sapUiSmallMarginTop" justifyContent="End">
+                        <m:Button text="Delete Case" press="onDeleteCase" type="Reject" icon="sap-icon://delete" />
+                    </m:HBox>
+                </m:Panel>
+            </m:VBox>
+
+            <!-- E-TAG -->
+            <m:VBox class="sapUiMediumMargin">
+                <m:Panel headerText="✏️ E-TAG" expandable="true" expanded="true" class="sapUiResponsiveMargin">
+                    <m:HBox class="sapUiSmallMarginTop" justifyContent="Center">
+                        <m:Button text="GET ETAG VALUE" press="onUpdateCase1" type="Success" icon="sap-icon://edit" />
+                    </m:HBox>
+                </m:Panel>
+            </m:VBox>
+
+            <!-- Update Case -->
+            <m:VBox class="sapUiMediumMargin">
+                <m:Panel headerText="✏️ Update a Case by Case ID and Action ID" expandable="true" expanded="true" class="sapUiResponsiveMargin">
+                    <form:SimpleForm layout="ResponsiveGridLayout" editable="true" class="sapUiResponsiveMargin" width="80%">
+                        <m:Label text="Case ID:" />
+                        <m:Input id="UpdateCaseInput" placeholder="Enter Case ID" value="{/UCaseId}" />
+
+                        <m:Label text="Action ID:" />
+                        <m:Input id="UpdateActionInput" placeholder="Enter Action ID" value="pyUpdateCaseDetails" />
+
+                        <m:Label text="Purchase Order Number:" />
+                        <m:Input id="UpdatePON" placeholder="Enter PO Number" value="{/UPON}" />
+
+                        <m:Label text="E-Tag:" />
+                        <m:Input id="ETAG" placeholder="Enter E-Tag" value="{/UETAG}" />
+                    </form:SimpleForm>
+
+                    <m:HBox class="sapUiSmallMarginTop" justifyContent="End">
+                        <m:Button text="Update Case" press="onUpdateCase" type="Success" icon="sap-icon://edit" />
+                    </m:HBox>
+                </m:Panel>
+            </m:VBox>
+
+            <!-- Get Next Work Assignment -->
+            <m:VBox class="sapUiMediumMargin">
+                <m:Panel headerText="✏️ Get next Work Assignment using DX Api" expandable="true" expanded="true" class="sapUiResponsiveMargin">
+                    <m:HBox class="sapUiSmallMarginTop" justifyContent="Center">
+                        <m:Button text="Get next Work Assignment using DX Api" press="onGNEXT" type="Success" icon="sap-icon://edit" />
+                    </m:HBox>
+                </m:Panel>
+            </m:VBox>
+
+            <!-- Get Data Objects -->
+            <m:VBox class="sapUiMediumMargin">
+                <m:Panel headerText="Get Data Objects using DX Apis" expandable="true" expanded="true" class="sapUiResponsiveMargin">
+                    <m:HBox class="sapUiSmallMarginTop" justifyContent="Center">
+                        <m:Button text="Get Data Objects using DX Apis" press="onDtaObject" type="Success" icon="sap-icon://edit" />
+                    </m:HBox>
+                </m:Panel>
+            </m:VBox>
+
+        </m:content>
+    </m:Page>
+</mvc:View>
