@@ -1,0 +1,21 @@
+<mvc:View
+    controllerName="project3.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+    <Page id="page" title="SAP X PEGA Extender">
+        <content>
+    <VBox>
+        
+    </VBox>
+            
+                <!-- Container for Pega Embed -->
+                <VBox id="pegaContainer">
+                <Text id="userNameText" text="Welcome, User" class="sapUiSmallMargin"/>
+                <Text id="userEmailText" text="Welcome, user@example.com" class="sapUiSmallMargin"/>
+                    
+                </VBox>
+            
+        </content>
+    </Page>
+</mvc:View>
